@@ -19,6 +19,10 @@ if (isset($_POST['heureSaisi'], $_POST['minuteSaisi'], $_POST['secondeSaisi'])) 
     $secondeSaisi = $_POST['secondeSaisi'];
 }
 
+if (isset($_POST['ajouterUneSeconde'])){
+    
+}
+
 
 
 
