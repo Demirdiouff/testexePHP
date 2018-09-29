@@ -67,7 +67,7 @@ if (isset($_POST['ajouterUneSeconde'])){
 	<p>Voici l'heure que vous avez rentré : <?php echo $heure . 'h '; echo $minutes . 'min '; echo $secondes . 's.' ?></p>
 	<?php } ?>
 	
-	<?php if (isset($_POST['enregistrementHeure'])) {?>
+	<?php if (isset($_POST['ajouterUneSeconde'])) {?>
 	<form method="POST">
 		<p><input style="width: 200px" type="hidden" min="00" max="23" name="heure" placeholder="Heure :  (entre 00 et 23)" value="<?php echo $nouvHeure?>"></p>
 		<p><input style="width: 200px" type="hidden" min="00" max="59" name="minutes" placeholder="Minutes :  (entre 00 et 59)" value="<?php echo $nouvMinutes?>"></p>
