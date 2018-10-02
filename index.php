@@ -39,7 +39,9 @@
 		<li><a href="exo7.php">Exo 7</a> (ok avec David) [temps passé dessus ≈ 25min]</li>
 		<li><a href="exo8.php">Exo 8</a> (ok) [temps passé dessus ≈ 10min]</li>
 		<li><a href="exo9.php">Exo 9</a></li>
-		<li><a href="exo9entrainement.php">Exo 9 (entrainement)</a></li>
+		<li><a href="exo9entrainement.php">Exo 9 (entrainement)</a> (ok) [temps passé desuss ≈ 1h]</li>
+		<li><a href="exo10.php">Exo 10</a></li>
+		<li><a href="exo11.php">Exo 11</a></li>
 	</ul>
 </body>
 
