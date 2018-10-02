@@ -19,25 +19,20 @@ $nouvHeure = null;
 $nouvMinutes = null;
 $nouvSecondes = null; 
 
-
-if (isset($_POST['heure'], $_POST['minutes'], $_POST['secondes'])) {
-    $heure = $_POST['heure'];
-    $minutes = $_POST['minutes'];
+if (isset($_POST['secondes'], $_POST['minutes'], $_POST['heure'])) {
     $secondes = $_POST['secondes'];
+    $nouvSecondes = $secondes;
+    
+    $nouvMinutes = $_POST['minutes'];
+    $minutes = $nouvMinutes;
+    
+    $nouvHeure = $_POST['heure'];
+    $heure = $nouvHeure;
+    $nouvSecondes ++;
     echo ("ligne : " . __LINE__ . "<br>");
 }
 
 if (isset($_POST['ajouterUneSeconde'])) {
-    if (isset($_POST['secondes'], $_POST['minutes'], $_POST['heure'])) {
-        $secondes = $nouvSecondes;
-        $nouvSecondes = $_POST['secondes'];
-        $minutes = $nouvMinutes;
-        $nouvMinutes = $_POST['minutes'];
-        $heure = $nouvHeure;
-        $nouvHeure = $_POST['heure'];
-        $nouvSecondes ++;
-        echo ("ligne : " . __LINE__ . "<br>");
-    }
     if ($nouvSecondes > 59) {
         $nouvSecondes = 00;
         $nouvMinutes ++;
