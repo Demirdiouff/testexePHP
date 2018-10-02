@@ -29,7 +29,6 @@ if (isset($_POST['secondes'], $_POST['minutes'], $_POST['heure'])) {
     $nouvHeure = $_POST['heure'];
     $heure = $nouvHeure;
     $nouvSecondes ++;
-    echo ("ligne : " . __LINE__ . "<br>");
 }
 
 if (isset($_POST['ajouterUneSeconde'])) {
@@ -60,7 +59,6 @@ if (isset($_POST['ajouterUneSeconde'])) {
 		<p><input style="width: 200px" type="number" min="00" max="59" name="minutes" placeholder="Minutes :  (entre 00 et 59)" value="<?php echo $minutes?>"></p>
 		<p><input style="width: 200px" type="number" min="00" max="59" name="secondes" placeholder="Secondes :  (entre 00 et 59)" value="<?php echo $secondes?>"></p>
 		<input type="submit" name="enregistrementHeure" value="Rentrez cette heure">
-		<?php echo ("ligne : " . __LINE__ . "<br>"); ?>
 	</form><br>
 	
 	
@@ -73,7 +71,6 @@ if (isset($_POST['ajouterUneSeconde'])) {
 		<p><input style="width: 200px" type="hidden" min="00" max="59" name="minutes" placeholder="Minutes :  (entre 00 et 59)" value="<?php echo $nouvMinutes?>"></p>
 		<p><input style="width: 200px" type="hidden" min="00" max="59" name="secondes" placeholder="Secondes :  (entre 00 et 59)" value="<?php echo $nouvSecondes?>"></p>
 		<input type="submit" name="ajouterUneSeconde" value="Ajouter une seconde ?">
-		<?php echo ("ligne : " . __LINE__ . "<br>"); ?>
 	</form>
 	<p>Voici la nouvelle heure actuelle, on avance dans le temps... : <?php echo $nouvHeure . 'h '; echo $nouvMinutes . 'min '; echo $nouvSecondes . 's.' ?></p>
 		
