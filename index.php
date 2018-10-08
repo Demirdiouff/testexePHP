@@ -42,6 +42,8 @@
 		<li><a href="exo9entrainement.php">Exo 9 (entrainement)</a> (ok) [temps passé desuss ≈ 1h]</li>
 		<li><a href="exo10.php">Exo 10</a></li>
 		<li><a href="exo11.php">Exo 11</a></li>
+		<li><a href="exo11entrainement.php">Exo 11 (entrainement)</a></li>
+		<li><a href="exo11entrainementbis.php">Exo 11 (entrainement) (bis)</a></li>
 	</ul>
 </body>
 
