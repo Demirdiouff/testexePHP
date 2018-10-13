@@ -15,8 +15,10 @@ $mois = null;
 $annee = null;
 
 
-class MyDate { // Date
+class MyDate { // Date qui pourrait faire référence a une fonction PHP. 
     
+    // en dessous, ce sont les attributs de la classe MyDate : MyDate a un jour, a un mois, et une année 
+    // ici le fait qu'ils soient en protected, c'est qu'ils ne peuvent être modifiés que à l'intérieur d'une classe 
     private $_jour;
     private $_mois;
     private $_annee;
