@@ -2,6 +2,10 @@
 
 session_start();
 
+include 'Debug.php';
+Debug::printr($_POST);
+Debug::printr($_SESSION);
+
 echo '<a href="index.php">Retour au menu</a><br><br>';
 
 echo '<p><strong>Ex : 11</strong></p>';
@@ -18,10 +22,12 @@ echo '<p><strong>Ex : 11</strong></p>';
 
 
 $alphabet = "abcdefghijklmnopqrstuvwxyz";
-// if (isset($_POST['Generer'])) {
-//     $_SESSION['mot'] = null;
-// }
+if (!isset($_SESSION['mot'])) {
+$_SESSION['mot'] = null;
+}
+if (!isset($_SESSION['lettres'])){
 $_SESSION['lettres'] = null;
+}
 // $lettrePendu = null;
 
 if (!empty($_GET['reset']) && $_GET['reset'] == 'true')
@@ -68,7 +74,7 @@ if (isset($_POST['partie']) && $_POST['partie'] == "new") {
 
 if (isset($_SESSION['mot'])) {
     if (isset($_GET['lettre'])) {
-        $_SESSION['lettres'].= $_GET['lettre'];
+        $_SESSION['lettres'] .= $_GET['lettre'];
         for ($j=0; $j<count($_SESSION['recherche']); $j++) {
             if (substr($_SESSION['mot'], $j,1) == $_GET['lettre'])
                 $_SESSION['recherche'][$j] = $_GET['lettre'];
