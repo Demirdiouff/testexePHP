@@ -24,6 +24,11 @@ if (isset($_POST['stockagePendu'])) {
     $stockagePendu = $_POST['stockagePendu'] . $lettrePendu; 
 }
 
+if (isset($_POST['lettresJustes'])) {
+    $lettresJustes = $_POST['lettresJustes'];
+}
+
+
 ?>
 
 <form method="post">
@@ -49,7 +54,9 @@ for ($nbLettre = 0; $nbLettre < strlen($motPendu); $nbLettre++) {
     // il va falloir a l'intérieur de la boucle for en créer une autre pour parcourir la chaine de carac stockagePendu  
     // pour chaque lettre de stockagePendu tester si ça existe ou non
     // créer une autre variable pour sauvegarder les lettres trouvées 
-      
+    if (isset($_POST['lettresJustes'])) {
+        $lettresJustes = $_POST['lettresJustes'];
+    }
     //echo $motPendu[$nbLettre];
     //echo ("<br />lettrePendu=" . $lettrePendu . " - motPendu=" . $motPendu[$nbLettre] . "<br />\n");
         if ($lettrePendu === $motPendu[$nbLettre]) {
@@ -57,11 +64,19 @@ for ($nbLettre = 0; $nbLettre < strlen($motPendu); $nbLettre++) {
         } else {
             echo " _ ";
         }
-    }
+        
+        if (isset($_POST['stockagePendu'])) {
+            if ($lettrePendu === $motPendu[$nbLettre]) {
+                $lettresJustes = $_POST['lettresJustes'];
+            }
+        }   
+}
     
     // $stockagePendu arrive bien a stocker plusieurs lettres, la variable stocke tout ce qu'on met dans l'input
     echo '<br/><br/>';
     echo $stockagePendu;
+    echo '<br/><br/>';
+    echo $lettresJustes;
     
     
     //$recherche[$nbLettre] = "_";

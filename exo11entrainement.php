@@ -22,7 +22,7 @@ $alphabet = 'abcdefghijklmnopqrstuvwxyz';
 $motPendu = 'tronconneuse';
 
 $recherche = null;
-$lettre = null;
+$lettres = null;
 
 if (isset($_POST['tester'])) {
     $motPendu = $_POST['motPendu'];
