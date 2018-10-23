@@ -194,10 +194,26 @@ if (!isset($_POST['submit'])){
     if ($month == 'February'){
         echo "The month of February has " . $months['February'] . ".";
     } else {
-    echo "The month of $month has $months[$month] days.";
+    echo "The month of $month has $months[$month].";
     }
 }
 ?>
 <form method="post">
 	<input type="submit" value="reset">
 </form>
+
+
+
+
+
+<br><br><br><hr><br><br>
+
+
+
+
+
+<?php 
+// ------------------------------------------------------------------------ 5) Variable Argument Number, GO ! ------------------------------------------------------------------- //
+
+
+?>
