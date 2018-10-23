@@ -161,6 +161,7 @@ foreach ($weather as $w) {
 // avec la possibilité au visiteur de rajouter encore une fois un moyen de transport si il le souhaite, autant qu'il veut
 
 
+
 // On initialise l'array dans une variable ainsi que la phrase
 // $phrase = "Travel takes many forms, whether across town, across the country, or around the world. Here is a list of some common modes of transportation : <br>";
 // $transports = array('Automobile', 'Jet', 'Ferry', 'Subway');
@@ -168,17 +169,16 @@ foreach ($weather as $w) {
 // // implode permet de faire afficher sous forme de string ce qui est contenu dans un array
 // // array_pop permet d'enlever le dernier element d'un type array 
 // $lastToPop = array_pop($transports);
-
 // echo "<br>";
-
 // $phrase .= join(', ', $transports) . ", $lastToPop.<br>";
 // echo $phrase;
 
+// Si le formulaire n'a pas déjà été soumis, alors faire afficher le formulaire
 if (!isset($_POST['submit'])){
 
+// initialisation du tableau dans "$transport"
 $transport = array('Automobile', 'Jet', 'Ferry', 'Subway');
 
-}
 ?>
 
 <p> Travel takes many forms, whether across town, across the country, or around the world. Here is a list of some common modes of transportation: </p>
@@ -190,8 +190,126 @@ foreach ($transport as $t) {
 }
 echo "</ul>";
 ?>
-
+<!--  création du formulaire qui contient un foreach pour naviguer dans le tableau -->
 <form method="post">
 	<p>Merci d'ajouter votre moyen de transport préféré, vous pouvez en ajouter plusieurs en les séparant par une virgule :
-	<input type="text" name="ajoutTransport" value="<?php ?>">
+	<input type="text" name="ajoutTransport" placeholder="Transport :" value="<?php ?>">
+
+<?php 
+// Envoi du tableau array actuel sous formulaire caché 
+foreach ($transport as $t) {
+    echo "<input type=\"hidden\" name=\"transport[]\" value=\"$t\">";
+}
+?> 
+
+<input type="submit" name="submit" value="Ajouter">
 </form>
+
+<?php 
+// si le formulaire a été envoyé, alors on procède au script d'ajout
+}else {
+    // on stock dans $transport le POST du tableau 
+$transport = ($_POST['transport']);
+// on convertir ce que l'utilisateur vient de rentrer ('string') to array
+$ajoutTransport = explode(',', $_POST['ajoutTransport']);
+
+// on ajoute a l'array existant, la fonction "array_splice" efface et remplace une portion d'un tableau
+// en gros cette ligne de code revient a remplacer "$transport" au début, pour ensuite recompter le tableau grâce a "count" et ensuite re-affiche le tableau avec l'ajout qu'il y a eu dans "$ajoutTransport"
+// qui lui est généré grâce au "$_POST['ajoutTransport']"
+array_splice($transport, count($transport), 0, $ajoutTransport);
+// on aurait aussi pu ecrire "$transport=array_merge($transport, $ajoutTransport);"
+
+// on retourne la nouvelle liste à l'utilisateur
+echo "<p>Voici la nouvelle liste généré avec vos ajouts :</p><ul>";
+foreach ($transport as $t) {
+    echo "<li> $t </li>";
+}
+echo "</ul>";
+
+?>
+<p> Ajouter un moyen supplémentaire ? </p>
+<form method="post">
+	<input type="text" name="ajoutTransport" value="<?php ?>">
+	<p />
+	
+<?php 
+
+// On repète la manipulation précédente : on renvoi le tableau caché sous forme "hidden"
+foreach ($transport as $t){
+    echo "<input type=\"hidden\" name=\"transport[]\" value=\"$t\">";
+}
+?>
+<input type="submit" name="submit" value="Ajouter">
+</form>
+<?php 
+}
+?>
+<form method="post">
+	<input type="submit" value="reset">
+</form>
+
+
+
+
+<br><br><br><hr><br><br>
+
+
+
+
+<?php 
+// ------------------------------------------------------------------------ 5) Associative Arrays, GO ! ------------------------------------------------------------------- //
+
+// Dans cet exercice, on va reprendre la liste des villes utilisé plus haut dans l'ex 2, mais cette fois-ci on associe le nom du pays à la ville 
+// on va créer un premier tableau simplement pour s'entrainer sur l'affichage tableau,
+// ensuite on va prendre les élements de ce tableau pour en faire un tableau associatif, où les pays seront les clés, et les villes les valeurs. 
+// Créer par la suite un formulaire avec les instructions pour permettre de choisir une ville : 
+// La selection pour le visiteur doit reprendre les 10 villes, quand le visiteur cliquera sur "submit", il y aura un echo de l'ordre : 
+// "$city is in $country" où $city sera la ville choisie sur la liste formulaire et où $country sera la clé dans le tableau
+
+// initialisation du tableau associatif
+$world = array(
+    "Japan" => "Tokyo",
+    "Mexico" => "Mexico City",
+    "USA" => "New York City",
+    "India" => "Mumbai",
+    "Korea" => "Seoul",
+    "China" => "Shanghai",
+    "Nigeria" => "Lagos",
+    "Argentina" => "Buenos Aires",
+    "Egypte" => "Cairo",
+    "England" => "London",
+);
+
+// Si le formulaire n'est pas soumis, alors on l'affiche 
+if (!isset($_POST['submit'])) {
+?>
+
+<form method="post">
+	<p>Choisissez votre pays :</p>
+	<select name="city">
+	
+	<?php 
+	foreach ($world as $w) {
+	    echo "<option value=\"$w\">$w</option><br>";
+	}
+	?>
+	</select>
+	<input type="submit" name="submit" value="Envoyer">
+</form>
+
+<?php 
+// Si le formulaire a été envoyé alors on s'occupe de cette partie de l'affichage
+} else {
+    // Retransmettre la réponse du visiteur via le formulaire plus haut, dans la première partie en "if"
+    $city = $_POST['city'];
+    // Retrouver la correspondance de la clé dans le tableau, donc on cherche par ex à quoi correspond "Lagos " -> "?" 
+    //$country = array_search($city, $world); deuxième possibilité d'écriture, qui consiste ici a flipper la clé et la value du tableau associatif plus haut.
+    // sinon on peut simplement conserver l'affichage classique qui est écrit entre commentaires et cela fonctionne également
+    $country = array_flip($world);
+    // Renvoi les infos a l'utilisateur, on prend $city qui a été choisi plus haut, dans le formulaire, et $country, qui vient d'être créée, selon la saisie de l'utilisateur
+    echo "<p>$city is in $country[$city].</p>"; 
+}
+?>
+
+
+
