@@ -369,3 +369,18 @@ $basseTempe = array_slice($avrilHighTemps, -5, 5);
 
 
 
+<br><br><br><hr><br><br>
+
+
+
+
+
+
+<?php 
+// ------------------------------------------------------------------------ 7) Multi-Dimensional Array, GO ! ------------------------------------------------------------------- //
+// Cet exercice sera en 2 parties : 
+// Dans cet exercice on va récupérer le tableau de l'ex 5 avec les grandes villes, et le transformer en un array multi-dimensionel. 
+// on va réecrire les grandes villes, dans ce tableau multi dimensionel en le nommant $multiCity
+
+
+?>
