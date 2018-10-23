@@ -311,5 +311,61 @@ if (!isset($_POST['submit'])) {
 }
 ?>
 
+<form method="post">
+	<input type="submit" value="reset">
+</form>
+
+
+
+
+
+<br><br><br><hr><br><br>
+
+
+
+
+<?php 
+// ------------------------------------------------------------------------ 6) Manipulate Arrays, GO ! ------------------------------------------------------------------- //
+
+// Dans cet exercice il va falloir créer un array des 30 jours d'un mois au printemps, et y affectuer pour chacun des jours une estimation de la température la plus haute qui puisse arriver
+// Ensuite, il va falloir recupérer la température moyenne, les 5 températures les plus chaudes, et les 5 températures les plus froides 
+// et les afficher
+
+// Création du tableau des degrés pour un mois d'Avril
+$avrilHighTemps = array(21, 23, 20, 18, 17, 25, 26, 27, 27, 28, 23, 24, 21, 19, 17, 16, 17, 20, 23, 23, 25, 22, 24, 27, 28, 27, 26, 24, 20, 24);
+
+// On recupère d'abord le nombre de témperatures listés: 
+$count = count($avrilHighTemps);
+echo "<p>Le nombre de températures contenu dans le tableau est de : " . $count . " températures</p>";
+
+// avoir un total de toutes les températures
+$total = 0;
+foreach ($avrilHighTemps as $aHT){
+    $total += $aHT; // affichera pour le total 682
+}
+
+// on calcule la moyenne selon le total de température qu'on a calculé plus haut
+$moyenne = round($total / $count);
+echo "<p>La moyenne des températures contenu dans le tableau est de : " . $moyenne . "&deg;</p>";
+
+// on trie le tableau des températures et on récupère le 5 plus hautes et les 5 plus basses 
+// on utilise pour ça la fonction rsort pour le classement dans l'ordre descendant
+
+rsort($avrilHighTemps);
+
+$hauteTempe = array_slice($avrilHighTemps, 0, 5);
+    echo "<p>Les 5 températures les plus chaudes pour le mois sont : </p>";
+    foreach ($hauteTempe as $hT){
+        echo "<li> $hT&deg;</li>";
+    }
+$basseTempe = array_slice($avrilHighTemps, -5, 5);
+    echo "<p>Les 5 températures les plus basses pour le mois sont : </p>";
+    foreach ($basseTempe as $bT){
+        echo "<li> $bT&deg;</li>";
+    }
+
+?>
+
+
 
 
