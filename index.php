@@ -22,7 +22,8 @@
 		<li><a href="ExosWebNivDebutant.php">Exercices trouvés sur le Web pour entraînement (niveau débutant)</a></li>
 		<li><a href="ExosWebControlStructures.php">Exercices trouvés sur le Web pour s'entraîner sur les structures de code (boucles, for...) - (niveau intermédiaire)</a></li>
 		<li><a href="ExosWebForms.php">Exercices trouvés sur le Web pour s'entraîner sur les transmissions de données via formulaire - (niveau intermédiaire)</a></li>
-		<li><a href="ExosWebArrays.php">Exercices trouvés sur le Web pour s'entraîner sur les arrays - (niveau intermédiaire)</a></li><br>
+		<li><a href="ExosWebArrays.php">Exercices trouvés sur le Web pour s'entraîner sur les arrays - (niveau intermédiaire)</a></li>
+		<li><a href="ExosFunctions.php">Exercices trouvés sur le Web pour s'entraîner sur les fonctions - (niveau intermédiaire)</a></li><br>
 		
 		<li><a href="cours1.php">Cours 1</a> (variables)</li>
 		<li><a href="cours2.php">Cours 2</a> (conditions)</li>
