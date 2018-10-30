@@ -1,5 +1,7 @@
 <?php
 
+include 'Debug.php';
+
 echo '<a href="index.php">Retour au menu</a><br><br><br>';
 
 // Exercices via le site
@@ -381,6 +383,182 @@ $basseTempe = array_slice($avrilHighTemps, -5, 5);
 // Cet exercice sera en 2 parties : 
 // Dans cet exercice on va récupérer le tableau de l'ex 5 avec les grandes villes, et le transformer en un array multi-dimensionel. 
 // on va réecrire les grandes villes, dans ce tableau multi dimensionel en le nommant $multiCity
+// ensuite on va devoir afficher le tableau dans un table en HTML et effectuer l'affichage en respectant l'ordre
+
+// la deduxième partie de l'exercice va être de reprendre le tableau, d'en faire un tableau "deux dimensional array"
+// voir plus bas pour la suite
+
+$multiCity=array(
+    array ('City', 'Country', 'Continent'),
+    array ('Tokyo', 'Japan', 'Asia'),
+    array ('Mexico City','Mexico', 'North America'),
+    array ('New York City', 'USA', 'North America'),
+    array ('Mumbai', 'India', 'Asia'),
+    array ('Seoul', 'Korea', 'Asia'),
+    array ('Shanghai', 'China', 'Asia'),
+    array ('Lagos', 'Nigeria', 'Africa'),
+    array ('Buenos Aires', 'Argentina', 'South America'),
+    array ('Cairo', 'Egypt', 'Africa'),
+    array ('London', 'UK','Europe')
+    );
+
+
+// print_r($multiCity);
+// Debug::printr($multiCity);
+
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=iso-8859-1" />
+<title>Multi-dimensional Array</title>
+<style type="text/css">
+td, th {width: 8em; border: 1px solid black; padding-left: 4px;}
+th {text-align:center;}
+table {border-collapse: collapse; border: 1px solid black;}
+</style>
+</head>
+
+<body>
+<h2>City Table<br /></h2>
+ 
+<table>
+<thead>
+<tr>
+<th>
+
+	<?php 
+	echo $multiCity[0][0] . "</th>\n<th>";
+	echo $multiCity[0][1] . "</th>\n<th>";
+	echo $multiCity[0][2] . "</th>\n";
+	?>
+	
+</tr>
+</thead>
+<?php 
+// Recuperer le nb de lignes ds le tableau, a stocker dans une variable et utiliser cette variable dans la boucle for au lieu du nombre 
+// exact va nous permettre d'ajouter
+// dans l'array a une date ultérieure sans devoir modifier la boucle pour qu'elle continue quand même l'affichage correctement avec
+// les ajouts 
+
+$num = count($multiCity);
+
+// la boucle for débute a 0 pour itérer a l'intérieur de tout le tableau, ici on débutera pas a 0 puisque la ligne 0 a déjà été declarée
+// plus haut pour afficher "City, Country, Continent"
+// on va donc commencer a 1 
+
+for ($row=1; $row<$num; $row++) {
+    echo "<tr>\n";
+    foreach ($multiCity[$row] as $value) {
+        echo "<td>\n $value </td>";
+    }
+    echo "</tr>\n";
+}
+
+?>
+</table>
+</body>
+</html>
+
+
+
+<?php 
+// séparation entre deux parties d'exercice
+// D'ailleurs je n'ai pas compris la deuxième partie, simple façon d'écrire un tableau qui change?? 
+?>
+
+
+
+<?php 
+
+$multiCityBis = array (
+    array ('City' => 'Tokyo', 
+           'Country' => 'Japan',
+           'Continent' => 'Asia'),
+    array ('City' => 'Mexico City',
+           'Country' => 'Mexico',
+           'Continent' => 'North America'),
+    array ('City' => 'New York City',
+           'Country' => 'USA',
+           'Continent' => 'North America'),
+    array ('City' => 'Seoul',
+           'Country' => 'Korea',
+           'Continent' => 'Asia'),
+    array ('City' => 'Shanghai',
+           'Country' => 'China',
+           'Continent' => 'Asia'),
+    array ('City' => 'Lagos',
+           'Country' => 'Nigeria',
+           'Continent' => 'Africa'),
+    array ('City' => 'Buenos Aires',
+           'Country' => 'Argentina',
+           'Continent' => 'South America'),
+    array ('City' => 'Cairo',
+           'Country' => 'Egypt',
+           'Continent' => 'Africa'),
+    array ('City' => 'London',
+           'Country' => 'UK',
+           'Continent' => 'Europe'),
+    )
+?>
+
+<head>
+<meta http-equiv="content-type" content="text/html;charset=iso-8859-1" />
+<title>Multi-dimensional Array</title>
+<style type="text/css">
+td, th {width: 8em; border: 1px solid black; padding-left: 4px;}
+th {text-align:center;}
+table {border-collapse: collapse; border: 1px solid black;}
+</style>
+</head>
+
+<body>
+<h2>City Table (different presentation)<br /></h2>
+
+<table>
+<thead>
+<tr>
+
+<?php
+// Cette fois-ci le foreach va itérer sur les clés.
+foreach ($multiCityBis[0] as $key=>$value1){
+  echo "<th>$key</th>\n";
+}
+?>
+
+<?php
+// Recupère le nombre de lignes
+$num1 = count($multiCityBis); 
+// Maintenant le compteur commence a 0, seule différence entre le précédent array et celui la
+for ($row1=0; $row1<$num1; $row1++){
+  echo "<tr>\n";
+  foreach ($multiCityBis[$row1] as $value1){
+    echo "<td>$value1</td>\n";
+    }
+   echo "</tr>\n";  
+}
+?>
+ 
+</table>
+ 
+</body>
+</html>
+
+
+
+
+
+
+<br><br><br><hr><br><br>
+
+
+
+
+
+
+<?php 
 
 
 ?>
