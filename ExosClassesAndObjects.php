@@ -26,12 +26,9 @@ $browsers = array(
 
 class Select
 {
-
     private $name;
-
     // String variable
     private $value;
-
     // Array variable
 
     // Methods
@@ -49,8 +46,8 @@ class Select
     // Cette methode fournit les valeurs utilisées pour les options dans les field select et bien verifier que la valeur est un array
     public function setValue($value)
     {
-        if (! is_array($value)) {
-            die("Error: value is not an array.");
+        if (!is_array($value)){
+            die ("Error: value is not an array.");
         }
         $this->value = $value;
     }
@@ -106,7 +103,7 @@ $browser->setValue($browsers);
 $browser->makeSelect();
 ?>
 	</p>
-	<input type="submit" value="Envoyer">
+	<input type="submit" name="submit" value="Envoyer" />
 </form>
 
 <?php 
@@ -114,35 +111,24 @@ $browser->makeSelect();
 } else {
     // Ici on pourrait mettre du code SQL pour pouvoir faire le lien avec la BDD si on souhaitait enregistrer des infos qquepart
     // On recupère les réponses de l'utilisateur
-    echo "brbrr";
     
     $name = $_POST['name'];
     $username = $_POST['username'];
     $email = $_POST['email'];
     $selectBrowser = $_POST['browser'];
     
-//     if ($selectBrowser == 'Other'){
-        
-//         <form method="post">
-//         	<input type="text" name="autre">
-//         	<input type="submit" value="Sauvegarder">
-//         </form>
-      
-//     } else {
-    // On confirme les réponses a l'utilisateur voir si tout ce qui a été rentré est juste :
-    
     echo " Les informations suivantes ont été enregistrés pour" . $name . "<br>";
     echo " Nom d'utilisateur" . $username . "<br>";
     echo " L'email est :" . $email . "<br>";
     echo " Navigateur :" . $selectBrowser . "<br>";
     
-//    }
 }
-
-Debug::printr($_POST);
 
 ?>
 
 <form method="post">
 	<input type="submit" value="reset">
 </form>
+
+</body>
+</html>
