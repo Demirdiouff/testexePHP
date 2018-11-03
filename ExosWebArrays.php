@@ -457,6 +457,8 @@ for ($row=1; $row<$num; $row++) {
     echo "</tr>\n";
 }
 
+Debug::printr($multiCity);
+
 ?>
 </table>
 </body>
@@ -539,6 +541,8 @@ for ($row1=0; $row1<$num1; $row1++){
     }
    echo "</tr>\n";  
 }
+
+Debug::printr($multiCityBis);
 ?>
  
 </table>
@@ -552,13 +556,3 @@ for ($row1=0; $row1<$num1; $row1++){
 
 
 <br><br><br><hr><br><br>
-
-
-
-
-
-
-<?php 
-
-
-?>
