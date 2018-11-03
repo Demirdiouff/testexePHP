@@ -388,7 +388,7 @@ makeSelect('monthEx6', $monthsEx6);
 ?>
 
 <p />
-<input type="submit" value="Choisir">
+<input type="submit" name="submit" value="Choisir">
 </form>
 
 <?php
