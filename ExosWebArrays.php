@@ -96,23 +96,23 @@ if (!isset($_POST['submit'])){
 ?>
 
 <form method="post">
-	<input type="text" name="city" placeholder="Ville : ">
-	<input type="text" name="month" placeholder="Mois : ">
-	<input type="text" name="year" placeholder="Annee : ">
+	<input type="text" name="city" placeholder="Ville : " />
+	<input type="text" name="month" placeholder="Mois : " />
+	<input type="text" name="year" placeholder="Annee : " />
 	
-	<br><br>
+	<br/><br/>
 	
-	<input type="checkbox" name="weather[]" value="rain" checked="checked">Rain
-  	<input type="checkbox" name="weather[]" value="sunshine">Sunshine
-  	<input type="checkbox" name="weather[]" value="clouds">Clouds
-  	<input type="checkbox" name="weather[]" value="hail">Hail
-  	<input type="checkbox" name="weather[]" value="sleet">Sleet
-  	<input type="checkbox" name="weather[]" value="snow">Snow
-  	<input type="checkbox" name="weather[]" value="wind">Wind
+	<input type="checkbox" name="weather[]" value="rain" checked="checked" />Rain
+  	<input type="checkbox" name="weather[]" value="sunshine" />Sunshine
+  	<input type="checkbox" name="weather[]" value="clouds" />Clouds
+  	<input type="checkbox" name="weather[]" value="hail" />Hail
+  	<input type="checkbox" name="weather[]" value="sleet" />Sleet
+  	<input type="checkbox" name="weather[]" value="snow" />Snow
+  	<input type="checkbox" name="weather[]" value="wind" />Wind
   	
-  	<br><br>
+  	<br/><br/>
   	
-  	<input type="submit" name="submit" value="Enregistrer">
+  	<input type="submit" name="submit" value="Enregistrer" />
 </form>
 
 <?php } else { ?>
@@ -399,7 +399,8 @@ $multiCity=array(
     array ('Lagos', 'Nigeria', 'Africa'),
     array ('Buenos Aires', 'Argentina', 'South America'),
     array ('Cairo', 'Egypt', 'Africa'),
-    array ('London', 'UK','Europe')
+    array ('London', 'UK','Europe'),
+    array ('Lyon', 'France', 'Europe')
     );
 
 
@@ -456,8 +457,6 @@ for ($row=1; $row<$num; $row++) {
     }
     echo "</tr>\n";
 }
-
-Debug::printr($multiCity);
 
 ?>
 </table>
@@ -542,7 +541,6 @@ for ($row1=0; $row1<$num1; $row1++){
    echo "</tr>\n";  
 }
 
-Debug::printr($multiCityBis);
 ?>
  
 </table>
