@@ -68,7 +68,8 @@ class TableauTest {
     public function setValue($value){
         if (!is_array($value)){
             die ("Error : value is not an array");
-        } $this->value = $value;
+        } 
+        $this->value = $value;
     }
     
     // Getter
@@ -76,27 +77,27 @@ class TableauTest {
         return $this->value;
     }
     
-    public function organisationHtmlTableau($value) {
+    public function afficheTableau($value){
+        // affichage de l'entête
         echo "<table><thead><tr><th>";
         echo $value[0][0] . "</th>\n<th>";
         echo $value[0][1] . "</th>\n<th>";
         echo $value[0][2] . "</th>\n";
-        echo "</tr><thead>";
-    }
-    
-    public function iterationTableau($value){
-        for ($row = 1; $row; $row++){
+        echo "</tr></thead>";
+        // affichage du corps du tableau
+        $num = count($value); // recupère le nb de lignes pour la cond d'arrêt
+        for ($row = 1; $row < $num; $row ++) {
             echo "<tr>\n";
-            foreach ($value[$row] as $r){
-                echo "<td>\n $r </td>";
+            foreach ($value[$row] as $r) {
+                echo "<td>\n $r </td>"; // affichage de chacune des cases
             }
-            echo "</tr>\n</table>";
+            echo "</tr>\n";
         }
+        echo "</table>";
     }
 }
 
 $listeTableau = new TableauTest();
-$listeTableau->organisationHtmlTableau($multiCity);
-$listeTableau->iterationTableau($multiCity);
+$listeTableau->afficheTableau($multiCity);
 
 ?>
