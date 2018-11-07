@@ -196,11 +196,11 @@ class SelectBis{
     
     // Cette methode ci-dessous fournis les "value" utilisé pour les options en HTML
     // Setter
-    public function setValue($value){
-        if (!is_array($value)){
+    public function setValue($pValue){
+        if (!is_array($pValue)){
             die ('Error : value is not an array');
         }
-        $this->value = $value;
+        $this->value = $pValue;
     }
     
     // Getter
@@ -210,8 +210,8 @@ class SelectBis{
 
     // Cette methode ci-dessous va créer les options du champ select. Elle restera privée car il
     // n'y en aura pas besoin pour les opérations a l'extérieur de la classe
-    private function makeOptions($value){
-        foreach ($value as $v){
+    private function makeOptions(){
+        foreach ($this->value as $v){
             echo "<option value=\"$v\">" . ucfirst($v) . "</option>\n";
         }
     }
@@ -221,7 +221,7 @@ class SelectBis{
         echo "<select name=\"" . $this->getName() . "\">\n";
         // On crée les options
         echo "<option value=\"No response\">--- Select one ---</option>\n";
-        $this->makeOptions($this->getValue());
+        $this->makeOptions();
         echo "</select>";
     }
 } // fin de la classe Select
