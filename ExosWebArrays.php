@@ -296,7 +296,7 @@ if (!isset($_POST['submit'])) {
 	}
 	?>
 	</select>
-	<input type="submit" name="submit" value="Envoyer">
+	<input type="submit" name="submit" value="Envoyer" />
 </form>
 
 <?php 
@@ -314,7 +314,7 @@ if (!isset($_POST['submit'])) {
 ?>
 
 <form method="post">
-	<input type="submit" value="reset">
+	<input type="submit" value="reset" />
 </form>
 
 
